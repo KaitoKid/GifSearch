@@ -1,5 +1,7 @@
 # GifSearch
 
+Google only lets me do 100 searches a day without paying.
+
 ## To Install
 
 Clone this repo and run the commands:
