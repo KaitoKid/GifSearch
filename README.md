@@ -27,3 +27,9 @@ yarn
 # Run the app
 yarn start
 ```
+
+## To Do
+
+1. Global hotkey to launch it
+2. Run in taskbar/background
+3. Clean up the method of redoing the layout with preloading or lazy loading
