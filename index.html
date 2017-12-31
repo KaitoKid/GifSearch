@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gif Search</title>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS Materialize-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Nav bar for the search -->
+  <nav>
+    <div class="nav-wrapper">
+      <div class="input-field">
+        <input type="search" id="search-me" onsearch="gifSearch()" required>
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Photo results -->
+  <div class="grid" id="searchResults">
+    <div class="grid-sizer"></div>
+  </div>
+
+  <!-- stupid thing for electron -->
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+  <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+  <!-- Isotope -->
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src='http://npmcdn.com/imagesloaded@4/imagesloaded.pkgd.js'></script>
+
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <!-- my stuff/initialize jquery
+    WHY DOESNT CLIPBOARD SUPPORT COPYING GIFS
+    <script src="js/copyImage.js"></script>
+  -->
+  <script src="js/index.js"></script>
+
+  <script>if (window.module) module = window.module;</script>
+
+
+</body>
+
+</html>
