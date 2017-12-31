@@ -4,6 +4,8 @@ Google only lets me do 100 searches a day without paying.
 
 ## To Install
 
+### With NPM
+
 Clone this repo and run the commands:
 
 ```bash
@@ -16,6 +18,8 @@ npm install
 # Run the app
 npm start
 ```
+
+### With Yarn
 
 If you have [Yarn](https://yarnpkg.com/lang/en/docs/install/) (which I highly recommend):
 
