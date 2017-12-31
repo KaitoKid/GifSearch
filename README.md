@@ -15,7 +15,7 @@ npm install
 npm start
 ```
 
-If you have (Yarn)[https://yarnpkg.com/lang/en/docs/install/] (which I highly recommend):
+If you have [Yarn](https://yarnpkg.com/lang/en/docs/install/) (which I highly recommend):
 
 ```bash
 # Clone this repository
