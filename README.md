@@ -38,4 +38,4 @@ yarn start
 
 - [x] Global hotkey to launch it
 - [x] Run in taskbar/background
-- [] Clean up the method of redoing the layout with preloading or lazy loading
+- [ ] Clean up the method of redoing the layout with preloading or lazy loading
