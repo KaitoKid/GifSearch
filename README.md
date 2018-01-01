@@ -4,7 +4,7 @@ Google only lets me do 100 searches a day without paying.
 
 ## To Install
 
-### With NPM
+### Option 1: Use NPM
 
 Clone this repo and run the commands:
 
@@ -19,7 +19,7 @@ npm install
 npm start
 ```
 
-### With Yarn
+### Option 2: Use Yarn
 
 If you have [Yarn](https://yarnpkg.com/lang/en/docs/install/) (which I highly recommend):
 
@@ -34,7 +34,11 @@ yarn
 yarn start
 ```
 
-## To Do
+## Hotkeys
+
+`Command/Control + Shift + G` to open it.
+
+## To Finish
 
 - [x] Global hotkey to launch it
 - [x] Run in taskbar/background

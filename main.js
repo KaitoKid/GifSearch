@@ -13,7 +13,7 @@ const Menu = electron.Menu
 const globalShortcut = electron.globalShortcut
 
 app.on('ready', function() {
-  globalShortcut.register('CommandOrControl+Alt+G', function() {
+  globalShortcut.register('CommandOrControl+Shift+G', function() {
     if (mainWindow.isDestroyed()) {
       createWindow()
     } else {
