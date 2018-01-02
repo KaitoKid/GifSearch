@@ -41,7 +41,7 @@ yarn start
 3. Click an image to copy its URL
 4. Click and drag an image to use it in Facebook/Hangouts/etc.
 
-## To Finish
+## Progress
 
 - [x] Global hotkey to launch it
 - [x] Run in background

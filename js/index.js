@@ -23,5 +23,5 @@ $grid.on('click', '.grid-item', function() {
 function copyToast(){
   var x = document.getElementById("snackbar")
   x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1500);
 }

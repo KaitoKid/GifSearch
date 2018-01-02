@@ -1,5 +1,8 @@
 function gifSearch() {
+  // Clear searches
   $(".grid-item").remove();
+  $grid.isotope('layout');
+  
   var query = (document.getElementById("search-me").value + ' gif');
   //$grid.isotope('destroy');
   if (query === ' gif') {
@@ -8,15 +11,6 @@ function gifSearch() {
   } else {
     searchNow(query, 1);
   }
-  // Refresh the layout on search cus images dont know when they're done
-  (function loopingFunction() {
-    $grid.isotope('layout');
-    setTimeout(loopingFunction, 1000);
-  })();
-
-  // Next step would be to create all the images first from their property
-  // and then calculate the layout
-  // images can then take their time to load
 }
 
 function searchNow(searchQuery, startIndex) {
@@ -44,9 +38,4 @@ function searchNow(searchQuery, startIndex) {
 function getItemElement(gifURL) {
   var $item = $('<div class="grid-item" id="copyable" onClick="copyToast()"> <img src="' + gifURL + '" /></div>');
   return $item;
-}
-
-
-function addElements($items, index, data) {
-  $items.add(getItemElement(data.items[index]['link']))
 }
