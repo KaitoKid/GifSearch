@@ -1,5 +1,6 @@
-// ALL THE PHOTO MANIPULATION STUFF HERE
 // init Isotope
+const electron = require('electron')
+const clipboard = electron.clipboard
 
 var $grid = $('.grid').imagesLoaded(function() {
   // init Isotope after all images have loaded
@@ -12,60 +13,19 @@ var $grid = $('.grid').imagesLoaded(function() {
   });
 });
 
+// Adds filter and copies the link to clipboard
 $grid.on('click', '.grid-item', function() {
-  // change size of item by toggling gigante class
-  $(this).addClass('overlayFilter');
-  //$grid.isotope('layout');
+  //$(this).addClass('overlayFilter');
+  overlayOn()
+  var s = String(this.innerHTML)
+  var matches = s.match(/"([^"]*)"/)[1];
+  clipboard.writeText(matches);
 });
 
-function gifSearch() {
-  $(".grid-item").remove();
-  var x = (document.getElementById("search-me").value + ' gif');
-  //$grid.isotope('destroy');
-  searchNow(x, 1);
-  // Refresh the layout on search cus images dont know when they're done
-  (function loopingFunction() {
-    $grid.isotope('layout');
-    setTimeout(loopingFunction, 1000);
-  })();
-
-  // Next step would be to create all the images first from their property
-  // and then calculate the layout
-  // images can then take their time to load
+function overlayOn() {
+  document.getElementById("overlay").style.display = "block";
 }
 
-function searchNow(searchQuery, startIndex){
-  $.get("https://www.googleapis.com/customsearch/v1", {
-    key: 'AIzaSyDGQ1RlDQjeTJ_Wwkb9GD9lP9k8vO38Gig',
-    cx: '002856694791594034693:0kmg0kkpg1m',
-    searchType: 'image',
-    count:25,
-    q: searchQuery,
-    start: startIndex
-  }, function(data) {
-    var $items = getItemElement(data.items[0]['link']);
-    for (i = 1; i < data.items.length; i++) {
-      $items = $items.add(getItemElement(data.items[i]['link']));
-    }
-    $grid.append($items).isotope('appended', $items);
-  });
+function overlayOff() {
+  document.getElementById("overlay").style.display = "none";
 }
-
-function getItemElement(gifURL) {
-  var $item = $('<div class="grid-item" id="lastImage"><img src="' + gifURL + '" /></div>');
-  return $item;
-}
-
-
-function addElements($items, index, data) {
-  $items.add(getItemElement(data.items[index]['link']))
-}
-
-
-window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        console.log('reached end');
-        //var x = (document.getElementById("search-me").value + ' gif');
-        //searchNow(x, 11);
-    }
-};

@@ -36,10 +36,17 @@ yarn start
 
 ## Hotkeys
 
-`Command/Control + Shift + G` to open it.
+1. `Command/Control + Shift + G` to launch it from any screen
+2. Click an image to copy its URL
+3. Click and drag an image to use it in Facebook/Hangouts/etc.
 
 ## To Finish
 
 - [x] Global hotkey to launch it
-- [x] Run in taskbar/background
+- [x] Run in background
+- [x] Click a photo to copy the direct link
+- [x] Drag the photo to chat/anywhere
+- [x] Display overlay upon click that shows URL was copied
 - [ ] Clean up the method of redoing the layout with preloading or lazy loading
+- [ ] Loading indicator for gifs
+- [ ] Add history of used gifs

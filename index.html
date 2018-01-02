@@ -34,7 +34,12 @@
   </div>
 
   <!-- stupid thing for electron -->
-  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script>
+    if (typeof module === 'object') {
+      window.module = module;
+      module = undefined;
+    }
+  </script>
 
   <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
   <!-- Materialize -->
@@ -49,9 +54,14 @@
     <script src="js/copyImage.js"></script>
   -->
   <script src="js/index.js"></script>
-  <script>if (window.module) module = window.module;</script>
+  <script src="js/search.js"></script>
+  <script>
+    if (window.module) module = window.module;
+  </script>
 
-
+  <div id="overlay" onclick="overlayOff()">
+    <div id="overlayHelper">Copied URL!</div>
+  </div>
 </body>
 
 </html>

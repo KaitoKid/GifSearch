@@ -12,21 +12,6 @@ const Menu = electron.Menu
 // Launch window on shortcut
 const globalShortcut = electron.globalShortcut
 
-app.on('ready', function() {
-  globalShortcut.register('CommandOrControl+Shift+G', function() {
-    if (mainWindow.isDestroyed()) {
-      createWindow()
-    } else {
-      mainWindow.destroy();
-      createWindow();
-    }
-  })
-})
-
-app.on('will-quit', function() {
-  globalShortcut.unregisterAll()
-})
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -46,17 +31,6 @@ function createWindow() {
     skipTaskbar: true
   }))
 
-  const iconName = process.platform === 'win32' ? 'windows-icon.png' : 'iconTemplate.png'
-  const iconPath = path.join(__dirname, iconName)
-  appIcon = new Tray(iconPath)
-  const contextMenu = Menu.buildFromTemplate([{
-    label: 'Remove',
-    click: function () {
-      event.sender.send('tray-removed')
-    }
-  }])
-  appIcon.setToolTip('Electron Demo in the tray.')
-  appIcon.setContextMenu(contextMenu)
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -90,7 +64,37 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', function() {
+  createWindow()
+
+  globalShortcut.register('CommandOrControl+Shift+G', function() {
+    if (mainWindow.isDestroyed()) {
+      createWindow()
+    } else {
+      mainWindow.destroy();
+      createWindow();
+    }
+  })
+
+  // Can't create tray before app is ready, so create contextmenu icon here
+  // Don't need dock icon or real menu bar
+  // Dock shows open/close
+  const iconName = process.platform === 'win32' ? 'windows-icon.png' : 'iconTemplate.png'
+  const iconPath = path.join(__dirname, iconName)
+  appIcon = new Tray(iconPath)
+  const contextMenu = Menu.buildFromTemplate([{
+    label: 'Close',
+    click: function() {
+      app.quit()
+    }
+  }])
+  appIcon.setContextMenu(contextMenu)
+
+})
+
+app.on('will-quit', function() {
+  globalShortcut.unregisterAll()
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -108,7 +112,6 @@ app.on('activate', function() {
     createWindow()
   }
 })
-
 
 
 // In this file you can include the rest of your app's specific main process
