@@ -1,4 +1,3 @@
-// init Isotope
 const electron = require('electron')
 const clipboard = electron.clipboard
 
@@ -16,16 +15,13 @@ var $grid = $('.grid').imagesLoaded(function() {
 // Adds filter and copies the link to clipboard
 $grid.on('click', '.grid-item', function() {
   //$(this).addClass('overlayFilter');
-  overlayOn()
   var s = String(this.innerHTML)
   var matches = s.match(/"([^"]*)"/)[1];
   clipboard.writeText(matches);
 });
 
-function overlayOn() {
-  document.getElementById("overlay").style.display = "block";
-}
-
-function overlayOff() {
-  document.getElementById("overlay").style.display = "none";
+function copyToast(){
+  var x = document.getElementById("snackbar")
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
 }

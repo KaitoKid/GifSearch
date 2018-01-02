@@ -1,8 +1,13 @@
 function gifSearch() {
   $(".grid-item").remove();
-  var x = (document.getElementById("search-me").value + ' gif');
+  var query = (document.getElementById("search-me").value + ' gif');
   //$grid.isotope('destroy');
-  searchNow(x, 1);
+  if (query === ' gif') {
+    console.log("Empty search, try again")
+    // do nothing, not a real search
+  } else {
+    searchNow(query, 1);
+  }
   // Refresh the layout on search cus images dont know when they're done
   (function loopingFunction() {
     $grid.isotope('layout');
@@ -15,6 +20,7 @@ function gifSearch() {
 }
 
 function searchNow(searchQuery, startIndex) {
+  document.getElementById("loader").style.display = "block";
   $.get("https://www.googleapis.com/customsearch/v1", {
     key: 'AIzaSyDGQ1RlDQjeTJ_Wwkb9GD9lP9k8vO38Gig',
     cx: '002856694791594034693:0kmg0kkpg1m',
@@ -29,13 +35,14 @@ function searchNow(searchQuery, startIndex) {
     }
     // Should there be a loading indicator for the gifs?
     $items.imagesLoaded(function() {
+      document.getElementById("loader").style.display = "none";
       $grid.append($items).isotope('appended', $items);
     })
   });
 }
 
 function getItemElement(gifURL) {
-  var $item = $('<div class="grid-item" id="copyable"><img src="' + gifURL + '" /></div>');
+  var $item = $('<div class="grid-item" id="copyable" onClick="copyToast()"> <img src="' + gifURL + '" /></div>');
   return $item;
 }
 

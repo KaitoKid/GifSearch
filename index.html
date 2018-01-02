@@ -9,6 +9,8 @@
     require('./renderer.js')
   </script>
 
+
+
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS Materialize-->
@@ -33,6 +35,10 @@
     <div class="grid-sizer"></div>
   </div>
 
+  <div id="snackbar">Copied URL</div>
+
+  <div id="loader"></div>
+
   <!-- stupid thing for electron -->
   <script>
     if (typeof module === 'object') {
@@ -42,26 +48,17 @@
   </script>
 
   <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
-  <!-- Materialize -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
   <!-- Isotope -->
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-  <script src='http://npmcdn.com/imagesloaded@4/imagesloaded.pkgd.js'></script>
-
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-  <!-- my stuff/initialize jquery
-    WHY DOESNT CLIPBOARD SUPPORT COPYING GIFS
-    <script src="js/copyImage.js"></script>
-  -->
+
   <script src="js/index.js"></script>
   <script src="js/search.js"></script>
+
   <script>
     if (window.module) module = window.module;
   </script>
 
-  <div id="overlay" onclick="overlayOff()">
-    <div id="overlayHelper">Copied URL!</div>
-  </div>
 </body>
 
 </html>
