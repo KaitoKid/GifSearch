@@ -1,23 +1,20 @@
 {
-  "name": "electron-quick-start",
+  "name": "GifSearch",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A native application to quickly pull up reaction gifs",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "gif",
+    "search"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.7.8"
+    "electron": "^1.7.8"
   },
   "dependencies": {
     "hammerjs": "^2.0.8",
