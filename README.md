@@ -51,3 +51,4 @@ yarn start
 - [ ] Clean up the method of redoing the layout with preloading or lazy loading
 - [x] Loading indicator for gifs
 - [ ] Add history of used gifs
+- [ ] Add pagination

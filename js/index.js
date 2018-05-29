@@ -18,6 +18,9 @@ $grid.on('click', '.grid-item', function() {
   var s = String(this.innerHTML)
   var matches = s.match(/"([^"]*)"/)[1];
   clipboard.writeText(matches);
+  $(function() {
+    $("#search-me").focus();
+  });
 });
 
 function copyToast(){

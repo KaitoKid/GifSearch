@@ -19,10 +19,11 @@ function searchNow(searchQuery, startIndex) {
     key: 'AIzaSyDGQ1RlDQjeTJ_Wwkb9GD9lP9k8vO38Gig',
     cx: '002856694791594034693:0kmg0kkpg1m',
     searchType: 'image',
-    count: 25,
+    num: 5,
     q: searchQuery,
     start: startIndex
   }, function(data) {
+    console.log(data);
     var $items = getItemElement(data.items[0]['link']);
     for (i = 1; i < data.items.length; i++) {
       $items = $items.add(getItemElement(data.items[i]['link']));

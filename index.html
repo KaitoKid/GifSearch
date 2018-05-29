@@ -24,8 +24,10 @@
     <div class="nav-wrapper">
       <div class="input-field">
         <input type="search" id="search-me" onsearch="gifSearch()" required autofocus>
-        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-        <i class="material-icons">close</i>
+        <label class="label-icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <i class="material-icons clearsearch">close</i>
       </div>
     </div>
   </nav>
@@ -48,6 +50,15 @@
   </script>
 
   <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!-- clear search -->
+  <script>
+    $(".clearsearch").click(function () {
+      console.log('cleared search');
+      $("#search-me").val('');
+    });
+  </script>
+
   <!-- Isotope -->
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
